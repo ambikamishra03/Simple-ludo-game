@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Let's Play</h1>
+
+        <div class="dice">
+            <p>Player 1</p>
+            <img src="dice1.png" id="check1">
+        </div>
+        <div class="dice">
+            <p>Player 2</p>
+            <img src="dice-5.png" id="check2">
+        </div>
+        <div class="dice">
+            <p>Player 3</p>
+            <img src="dice3.png" id="check3">
+        </div>
+        <div class="btn">
+            <button onclick="ludogame()">Click here</button>
+        </div>
+    </div>
+
+    <script>
+         ludogame=()=>{
+        const player1=Math.floor(Math.random()*6)+1;
+        const play1dice=`dice${player1}.png`;
+        document.getElementById('check1').setAttribute('src',play1dice);
+
+        const player2=Math.floor(Math.random()*6)+1;
+        const play2dice=`dice${player2}.png`;
+        document.getElementById('check2').setAttribute('src',play2dice);
+
+        const player3=Math.floor(Math.random()*6)+1;
+        const play3dice=`dice${player3}.png`;
+        document.getElementById('check3').setAttribute('src',play3dice);
+
+        if(player1>player2 && player1>player3){
+           document.querySelector('h1').innerHTML="Player 1 Won :)"; 
+        }
+        else if(player2>player1 && player2>player3){
+            document.querySelector('h1').innerHTML="Player 2 Won :)";
+        }
+        else if(player3>player1 && player3>player2){
+            document.querySelector('h1').innerHTML="Player 3 Won :)";
+        }
+        else if(player1==player2 ||player1==player3){
+            document.querySelector('h1').innerHTML="Draw!";
+        }
+         }
+    </script>
+</body>
+
+</html>
